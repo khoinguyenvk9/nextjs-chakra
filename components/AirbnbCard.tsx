@@ -1,19 +1,20 @@
+import { FC } from 'react'
 import { Box, Image, Badge, } from "@chakra-ui/react"
+import { StarIcon } from '@chakra-ui/icons'
 
-const AirbnbCard = () => {
-  const property = {
-    imageUrl: 'https://bit.ly/2Z4KKcF',
-    imageAlt: 'Rear view of modern home with pool',
-    beds: 3,
-    baths: 2,
-    title: 'Modern home in city center in the heart of historic Los Angeles',
-    formattedPrice: '$1,900.00',
-    reviewCount: 34,
-    rating: 4,
-  }
+const AirbnbCard: FC<{ property?: any }> = ({ property }) => {
+
   return (
-    <Box maxW='100%' borderWidth='1px' borderRadius='lg' overflow='hidden'>
-      <Image src={property.imageUrl} alt={property.imageAlt} />
+    <Box
+      maxW='100%'
+      height='100%'
+      borderWidth='1px'
+      borderRadius='lg'
+      _hover={{
+        borderColor: 'tomato'
+      }}
+      overflow='hidden'>
+      <Image src={property?.imageUrl} alt={property?.imageAlt} />
 
       <Box p='6'>
         <Box display='flex' alignItems='baseline'>
@@ -28,7 +29,7 @@ const AirbnbCard = () => {
             textTransform='uppercase'
             ml='2'
           >
-            {property.beds} beds &bull; {property.baths} baths
+            {property.seats} Seats &bull; {property.doors} Doors
           </Box>
         </Box>
 
@@ -43,21 +44,17 @@ const AirbnbCard = () => {
         </Box>
 
         <Box>
-          {property.formattedPrice}
-          <Box as='span' color='gray.600' fontSize='sm'>
-            / wk
-          </Box>
+          {property.formattedPrice} &ndash; {property.formattedPriceTo}
         </Box>
 
         <Box display='flex' mt='2' alignItems='center'>
           {Array(5)
             .fill('')
             .map((_, i) => (
-              // <StarIcon
-              //   key={i}
-              //   color={i < property.rating ? 'teal.500' : 'gray.300'}
-              // />
-              <span key={i}>0</span>
+              <StarIcon
+                key={i}
+                color={i < property.rating ? 'yellow.400' : 'gray.300'}
+              />
             ))}
           <Box as='span' ml='2' color='gray.600' fontSize='sm'>
             {property.reviewCount} reviews

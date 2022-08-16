@@ -1,8 +1,15 @@
+import { 
+  Box, 
+  Container
+} from '@chakra-ui/react'
+
 const Footer = () => {
   return (
-    <div>
-My Footer
-    </div>
+    <Box bg="tomato" p={5}>
+      <Container maxW="90%">
+        Copy right by KHOI NGUYEN
+      </Container>
+    </Box>
   )
 }
 

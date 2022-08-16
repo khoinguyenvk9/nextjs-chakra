@@ -42,7 +42,7 @@ const Home: NextPage = () => {
                   <AirbnbCard />
                 </Box>
               </SimpleGrid> */}
-              <SimpleGrid columns={{ sm: 1, md: 2, lg: 4 }} spacing={2}>
+              {/* <SimpleGrid columns={{ sm: 1, md: 2, lg: 4 }} spacing={2}>
                 {
                   [1, 2, 4, 5, 6, 7, 8, 9, 10].map((_, idx) => (
                     <Box key={idx} height='auto' marginBottom={5}>
@@ -52,7 +52,7 @@ const Home: NextPage = () => {
                 }
 
 
-              </SimpleGrid>
+              </SimpleGrid> */}
             </Box>
           </Box>
         </Container>
